@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "TabFlow",
+  "version": "1.0.0",
+  "description": "Intelligent tab management based on user activity",
+  "permissions": [
+    "tabs",
+    "storage",
+    "idle",
+    "activeTab",
+    "downloads",
+    "scripting",
+    "webNavigation",
+    "background",
+    "unlimitedStorage",
+    "sessions",
+    "tabCapture",
+    "tabGroups"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icons/icon-16px.png",
+      "48": "icons/icon-48px.png",
+      "128": "icons/icon-128px.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module",
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "exclude_matches": [
+        "https://*.chrome.google.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon-16px.png",
+    "48": "icons/icon-48px.png",
+    "128": "icons/icon-128px.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html", "assets/*", "icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

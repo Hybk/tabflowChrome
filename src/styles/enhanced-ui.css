@@ -1,0 +1,127 @@
+/* Enhanced UI Styles */
+#root {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  margin: 8px 0;
+}
+
+/* Override Chrome's default popup styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Popup Container */
+.enhanced-popup {
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  position: relative;
+  overflow: hidden;
+  width: 400px;
+  height: 500px;
+  background-color: hsl(var(--background));
+}
+
+/* Tab Animations */
+.tab-trigger {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+  border: none !important;
+  outline: none !important;
+}
+
+.tab-trigger[data-state="active"] {
+  background-color: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+}
+
+/* Remove the line animation */
+.tab-trigger::after {
+  display: none;
+}
+
+/* Tab restore animation */
+.tab-restore {
+  transform-origin: center;
+  animation: restoreTab 0.3s ease;
+}
+
+@keyframes restoreTab {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Onboarding Tutorial */
+.tutorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: hsl(var(--background) / 0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.tutorial-content {
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  padding: 2rem;
+  border-radius: var(--popup-radius);
+  max-width: 80%;
+  position: relative;
+  border: 1px solid hsl(var(--border));
+}
+
+.tutorial-step {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.5s ease forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark mode enhancements */
+[data-theme="dark"] {
+  --background: hsl(224, 71%, 4%);
+  --foreground: hsl(213, 31%, 91%);
+  --primary: hsl(210, 100%, 52%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --card: hsl(224, 71%, 4%);
+  --card-foreground: hsl(213, 31%, 91%);
+  --border: hsl(224, 71%, 4%);
+}
+
+/* Light mode enhancements */
+[data-theme="light"] {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222.2, 47.4%, 11.2%);
+  --primary: hsl(221.2, 83.2%, 53.3%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222.2, 47.4%, 11.2%);
+  --border: hsl(0, 0%, 200%);
+}
+
+/* Force override any Chrome styles */
+#chrome-extension-popup {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
