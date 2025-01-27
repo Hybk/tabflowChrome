@@ -62,10 +62,15 @@ npm run build
    - Customize grouping rules in settings
    - Manually create and modify groups
 
-3. **Keyboard Shortcuts**
-   - `Ctrl/Cmd + Shift + F`: Open TabFlow
-   - `Ctrl/Cmd + G`: Group selected tabs
-   - `Ctrl/Cmd + S`: Save current session
+3. **Session Management**
+   - Save and restore your workspace states
+   - Switch between sessions with ease
+
+4. **Quick Search**
+   - Find any tab instantly with powerful search
+
+5. **Keyboard Shortcuts**
+   - Customize shortcuts to suit your needs
 
 ## 🛠️ Development
 
